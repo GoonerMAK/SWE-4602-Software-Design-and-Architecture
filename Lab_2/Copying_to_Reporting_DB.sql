@@ -1,5 +1,4 @@
--- DROP DATABASE IF EXISTS reporting_kids_shop;
-
+DROP DATABASE IF EXISTS reporting_kids_shop;
 CREATE DATABASE IF NOT EXISTS reporting_kids_shop;
 use reporting_kids_shop;
 
@@ -49,14 +48,6 @@ ALTER TABLE fact_rating
 ADD CONSTRAINT fk_rating_customer
 FOREIGN KEY (customer_id) REFERENCES dim_customer(id);
 
-ALTER TABLE fact_sale
-ADD CONSTRAINT fk_sale_product
-FOREIGN KEY (product_id) REFERENCES fact_product(id);
-
-ALTER TABLE fact_sale
-ADD CONSTRAINT fk_sale_invoice_id
-FOREIGN KEY (invoice_id) REFERENCES fact_invoice(id);
-
 ALTER TABLE fact_invoice
 ADD CONSTRAINT fk_invoice_customer
 FOREIGN KEY (customer_id) REFERENCES dim_customer(id);
@@ -64,6 +55,14 @@ FOREIGN KEY (customer_id) REFERENCES dim_customer(id);
 ALTER TABLE fact_invoice
 ADD CONSTRAINT fk_invoice_employee
 FOREIGN KEY (seller_id) REFERENCES dim_employee(id);
+
+ALTER TABLE fact_sale
+ADD CONSTRAINT fk_sale_product
+FOREIGN KEY (product_id) REFERENCES fact_product(id);
+
+ALTER TABLE fact_sale
+ADD CONSTRAINT fk_sale_invoice_id
+FOREIGN KEY (invoice_id) REFERENCES fact_invoice(id);
 
 ALTER TABLE fact_sale
 ADD CONSTRAINT fk_sale_category

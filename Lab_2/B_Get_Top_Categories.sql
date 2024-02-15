@@ -1,5 +1,5 @@
 
-DROP PROCEDURE IF EXISTS Get_Top_Rated_Categories
+DROP PROCEDURE IF EXISTS Get_Top_Rated_Categories;
 DELIMITER //
 CREATE PROCEDURE Get_Top_Rated_Categories()
 BEGIN
